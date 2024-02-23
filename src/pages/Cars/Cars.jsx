@@ -1,34 +1,24 @@
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import FilmsList from 'components/CarsList/CarsList';
-import Form from 'components/Form/Form';
-import { getMovieByQuery } from 'services/TmbdApi';
+import Cars from "../Cars/Cars.jsx"
+import CarFilter from "../../CarFilter/CarFilter.jsx"
+import { useSelector, useDispatch } from "react-redux";
+import { setFilters } from "../../components/CarFilter/CarFilter.jsx";
+import { selectAdverts } from "../../redux/selectors.js";
 
-const Movies = () => {
-  const [movies, setMovies] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams();
 
-  useEffect(() => {
-    const currentQuery = searchParams.get('query');
-    if (!currentQuery) return;
+const CarPage = () => {
+  const dispatch = useDispatch();
+  const adverts = useSelector(selectAdverts);
 
-    const fetchMovieByQuery = async () => {
-      try {
-        const movieByQuery = await getMovieByQuery(currentQuery);
-        setMovies(movieByQuery);
-      } catch (evt) {
-        console.log(evt);
-      }
-    };
-    fetchMovieByQuery();
-  }, [searchParams]);
-
+  const handleFilterChange = (filters) => {
+    dispatch(setFilters(filters));
+  };
+  
   return (
-    <>
-      <Form setSearchParams={setSearchParams} />
-      {movies.length > 0 && <FilmsList movies={movies} />}
-    </>
-  );
-};
+    <div>
+      <CarFilter adverts={adverts} onFilterChange={handleFilterChange} />
+      <Cars />
+    </div>
+  )
+}
 
-export default Movies;
+export default CarPage;

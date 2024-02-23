@@ -13,6 +13,9 @@ export const Layout = () => {
               </Link>
               <Link to="/cars">
                 Cars
+             </Link>
+             <Link to="/favorites">
+               Favourites
               </Link>
           </NavList>
         </Navigation>
