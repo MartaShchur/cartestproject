@@ -1,7 +1,7 @@
 import Cars from "../Cars/Cars.jsx"
-import CarFilter from "../../CarFilter/CarFilter.jsx"
+import CarFilter from "../../components/CarFilter/CarFilter.jsx"
 import { useSelector, useDispatch } from "react-redux";
-import { setFilters } from "../../components/CarFilter/CarFilter.jsx";
+import { setFilters } from "../../redux/filtersSlice.js";
 import { selectAdverts } from "../../redux/selectors.js";
 
 

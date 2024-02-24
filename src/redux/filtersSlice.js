@@ -32,6 +32,12 @@ const filterSlice = createSlice({
   },
 });
 
-export const { setFilter, setFiltersFavorite, } = filterSlice.actions;
+export const {
+  setFilters,
+  resetFilters,
+  setFiltersFavorite,
+  resetFiltersFavorite,
+} = filterSlice.actions;
+
 
 export const filterReducer = filterSlice.reducer;
