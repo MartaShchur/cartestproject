@@ -7,8 +7,7 @@ import {
 } from "../../redux/favouriteSlice.js";
 
 
-
- const CarItem = ({ advert })  {
+const CarItem = ({ advert } )  => {
   const [openModal, setOpenModal] = useState(false);
 
   const address = advert.address.split(",");
@@ -46,40 +45,35 @@ import {
 
   return (
     <>
-      <div className={css.cardLi}>
-        <div className={css.cardWrapper}>
-          <button className={css.btnAddFavorite} onClick={toggleFavorite}>
-            {favorites.some((favorite) => favorite.id === advert.id) ? (
-              <img src={iconAddFavorites} alt="icon add" />
-            ) : (
-              <img src={iconRemoveFavorites} alt="icon remove" />
-            )}
-          </button>
+      <cardLi >
+        <cardWrapper>
+          <btnAddFavorite  onClick={toggleFavorite}>
+          </btnAddFavorite>
 
-          <img className={css.carImg} src={advert.img} alt="car" height={268} />
-        </div>
+          <img  src={advert.img} alt="car" height={268} />
+        </cardWrapper>
 
         <div>
-          <div className={css.carTitle}>
+          <div >
             <h2>
               {advert.make} <span>{advert.model}</span>, {advert.year}
             </h2>
             <p>{advert.rentalPrice}</p>
           </div>
-          <div className={css.carInfo}>
+          <div>
             {city}&ensp;|&ensp;{country}&ensp;|&ensp;{advert.rentalCompany}
           </div>
 
-          <div className={css.carInfo}>
+          <div>
             {advert.type}&ensp;|&ensp;{advert.make}
             &ensp;|&ensp;{Number(advert.mileage).toLocaleString("en")}
             &ensp;|&ensp;{advert.accessories[0]}
           </div>
         </div>
-        <button className={css.btnLearnMore} onClick={openModalHendler}>
+        <button  onClick={openModalHendler}>
           Learn more
         </button>
-      </div>
+      </cardLi>
 
       {openModal && (
         <Modal closeModal={closeModalHendler} advert={advert} key={advert.id} />

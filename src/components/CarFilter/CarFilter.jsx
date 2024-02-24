@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import makes from "../../db/makes.json";
 import SelectPrice from "../../helpers/SelectPrice/SelectPrice";
 import SelectBrand from "../../helpers/SelectBrand/SelectBrand";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectFilters } from "../../redux/selectors.js";
 // import { resetFilters } from "../../redux/filters/filtersSlice.jsx";
 import {
@@ -47,12 +47,6 @@ const CarFilter = ({ onFilterChange }) => {
 
     onFilterChange(filters);
   };
-
-  // const clearFilters = (e) => {
-  //   e.preventDefault();
-  //   console.log("clear");
-  //   dispatch(resetFilters());
-  // };
 
   return (
     <filterForm onSubmit={handleFormSubmit}>
