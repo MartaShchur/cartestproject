@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { setAdverts, setAllAdverts } from 'redux/operations';
+import { setAdverts, setAllAdverts } from '../redux/operations';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -47,4 +47,4 @@ const carSlice = createSlice({
 
 export const {onNextPage } = carSlice.actions;
 
-export const contactsReducer = carSlice.reducer;
+export const carsReducer = carSlice.reducer;

@@ -1,4 +1,4 @@
-export const selectFavorites = (state) => state.favorite.favorites;
+export const selectFavourites = (state) => state.favorite.favourites;
 
 export const selectAdverts = (state) => state.car.adverts;
 export const selectAllAdverts = (state) => state.car.allAdverts;
@@ -7,4 +7,4 @@ export const selectError = (state) => state.car.error;
 export const selectPage = (state) => state.car.page;
 
 export const selectFilters = (state) => state.filters.filters;
-export const filtersFavorite = (state) => state.filters.filtersFavorite;
+export const filtersFavourite = (state) => state.filters.filtersFavourite;

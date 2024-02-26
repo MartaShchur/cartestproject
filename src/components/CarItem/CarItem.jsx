@@ -2,8 +2,8 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addToFavorites,
-  removeFromFavorites,
+  addToFavourites,
+  removeFromFavourites,
 } from "../../redux/favouriteSlice.js";
 
 
@@ -37,9 +37,9 @@ const CarItem = ({ advert } )  => {
     const isFavorite = favorites.some((favorite) => favorite.id === advert.id);
 
     if (isFavorite) {
-      dispatch(removeFromFavorites(advert));
+      dispatch(removeFromFavourites(advert));
     } else {
-      dispatch(addToFavorites(advert));
+      dispatch(addToFavourites(advert));
     }
   };
 

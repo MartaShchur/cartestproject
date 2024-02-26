@@ -10,15 +10,6 @@ const Favourite = lazy(() => import('pages/Favourite/Favourite'));
 
 const App = () => {
   return (
-    // <Routes>
-    //   <Route path="/" element={<Layout />}>
-    //     <Route index element={<Home />} />
-    //     <Route path="/favorites" element={<Favourites />} />
-    //     <Route path="/cars" element={<Cars />} />
-          
-    //     </Route>
-    // </Routes>
-
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />

@@ -14,7 +14,7 @@ export const Layout = () => {
               <Link to="/cars">
                 Cars
              </Link>
-             <Link to="/favorites">
+             <Link to="/favourites">
                Favourites
               </Link>
           </NavList>
