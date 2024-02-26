@@ -14,8 +14,8 @@ const handleRejected = (state, action) => {
 const carSlice = createSlice({
   name: 'cars',
    initialState: {
-    adverts: [],
-    allAdverts: [],
+    cars: [],
+    allCars: [],
     isLoading: false,
     error: null,
     page: 1,
@@ -26,7 +26,7 @@ const carSlice = createSlice({
       .addCase(setAdverts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.adverts = [...state.adverts, ...action.payload];
+        state.cars = [...state.cars, ...action.payload];
       })
       .addCase(setAdverts.rejected, handleRejected)
       .addCase(setAllAdverts.pending, handlePending)

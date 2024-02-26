@@ -6,8 +6,8 @@ import { onNextPage } from "../../redux/carSlice.js";
 import { setAdverts, setAllAdverts } from "../../redux/operations.js";
 import LoaderSpiner from "../LoaderSpiner/LoaderSpiner";
 import {
-  selectAdverts,
-  selectAllAdverts,
+  selectCars,
+  selectAllCars,
   selectFilters,
   selectIsLoading,
   selectPage,
@@ -19,9 +19,9 @@ const Cars = () => {
 
   const isLoading = useSelector(selectIsLoading);
   const page = useSelector(selectPage);
-  const adverts = useSelector(selectAdverts);
+  const adverts = useSelector(selectCars);
   const filters = useSelector(selectFilters);
-  const allAdverts = useSelector(selectAllAdverts);
+  const allCars = useSelector(selectAllCars);
 
   const isFilterOn = Boolean(
     filters.selectedMake ||
@@ -50,7 +50,7 @@ const Cars = () => {
     dispatch(setAdverts(page + 1));
   };
 
-  const filteredAdverts = allAdverts.filter((adverts) => {
+  const filteredAdverts = allCars.filter((cars) => {
     if (filters.selectedMake && adverts.make !== filters.selectedMake) {
       return false;
     }
@@ -75,8 +75,8 @@ const Cars = () => {
         <>
           {filteredAdverts.length > 0 ? (
             <advertsList>
-              {(isFilterOn ? filteredAdverts : adverts).map((advert) => {
-                return <AdvertItem key={advert.id} advert={advert} />;
+              {(isFilterOn ? filteredAdverts : adverts).map((car) => {
+                return <AdvertItem key={car.id} car={car} />;
               })}
             </advertsList>
           ) : (
