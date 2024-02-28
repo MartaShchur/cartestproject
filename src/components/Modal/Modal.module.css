@@ -38,11 +38,13 @@
   object-fit: cover;
   overflow: hidden;
 }
-.carTitle {
+
+/* .carTitle {
   display: flex;
   align-items: start;
   margin-bottom: 8px;
-}
+} */
+
 .carTitle h2 {
   color: #121417;
   font-family: inherit;
