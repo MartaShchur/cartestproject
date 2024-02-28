@@ -1,21 +1,13 @@
 {
   "files": {
-    "main.css": "/cartestproject/static/css/main.50efa96c.css",
-    "main.js": "/cartestproject/static/js/main.53d0c656.js",
-    "static/js/544.de0870d7.chunk.js": "/cartestproject/static/js/544.de0870d7.chunk.js",
-    "static/js/152.96ca4e28.chunk.js": "/cartestproject/static/js/152.96ca4e28.chunk.js",
-    "static/js/949.2c6c60a7.chunk.js": "/cartestproject/static/js/949.2c6c60a7.chunk.js",
-    "static/js/472.871f5fa7.chunk.js": "/cartestproject/static/js/472.871f5fa7.chunk.js",
+    "main.css": "/cartestproject/static/css/main.02a5bf23.css",
+    "main.js": "/cartestproject/static/js/main.ac9a637c.js",
     "index.html": "/cartestproject/index.html",
-    "main.50efa96c.css.map": "/cartestproject/static/css/main.50efa96c.css.map",
-    "main.53d0c656.js.map": "/cartestproject/static/js/main.53d0c656.js.map",
-    "544.de0870d7.chunk.js.map": "/cartestproject/static/js/544.de0870d7.chunk.js.map",
-    "152.96ca4e28.chunk.js.map": "/cartestproject/static/js/152.96ca4e28.chunk.js.map",
-    "949.2c6c60a7.chunk.js.map": "/cartestproject/static/js/949.2c6c60a7.chunk.js.map",
-    "472.871f5fa7.chunk.js.map": "/cartestproject/static/js/472.871f5fa7.chunk.js.map"
+    "main.02a5bf23.css.map": "/cartestproject/static/css/main.02a5bf23.css.map",
+    "main.ac9a637c.js.map": "/cartestproject/static/js/main.ac9a637c.js.map"
   },
   "entrypoints": [
-    "static/css/main.50efa96c.css",
-    "static/js/main.53d0c656.js"
+    "static/css/main.02a5bf23.css",
+    "static/js/main.ac9a637c.js"
   ]
 }
