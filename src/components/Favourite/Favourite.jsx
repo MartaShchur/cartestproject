@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import makes from "../../db/makes.json";
-
-import MySelectFav from "../../helpers/SelectFavourite";
+import css from "./Favorite.module.css";
+import MySelectFav from "../../helpers/SelectFavourite/SelectFavorite";
 import MySelectMakeFav from "../../helpers/SelectBrandFavorite/SelectBrandFavorite";
 import { useDispatch, useSelector } from "react-redux";
-import { filtersFavourite } from "../../redux/selectors";
-import { resetFiltersFavourite } from "../../redux/filtersSlice";
+import { filtersFavorite } from "../../redux/selectors";
+import { resetFiltersFavorite } from "../../redux/filtersSlice";
 
 
-const Favourite = ({ onFilterChange }) => {
+const Favorite = ({ onFilterChange }) => {
   const [selectedMake, setSelectedMake] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
   const [minMileage, setMinMileage] = useState("");
   const [maxMileage, setMaxMileage] = useState("");
 
   const dispatch = useDispatch();
-  const filters = useSelector(filtersFavourite);
+  const filters = useSelector(filtersFavorite);
 
   useEffect(() => {
     setSelectedMake(filters.selectedMake);
@@ -46,36 +46,37 @@ const Favourite = ({ onFilterChange }) => {
   const clearFilters = (e) => {
     e.preventDefault();
     console.log("clear");
-    dispatch(resetFiltersFavourite());
+    dispatch(resetFiltersFavorite());
   };
 
   return (
     <div>
-      <filterForm onSubmit={handleFormSubmit}>
-        <selectWrapper >
-          <lableTitle >Car brand</lableTitle>
+      <form onSubmit={handleFormSubmit} className={css.filterForm}>
+        <div className={css.select_wrapper}>
+          <ladel className={css.lable_title}>Car brand</ladel>
           <MySelectMakeFav
             selectedMake={selectedMake}
             setSelectedMake={setSelectedMake}
             makes={makes}
           />
-        </selectWrapper>
-        <selectWrapper>
-          <lableTitle>Price/ 1 hour</lableTitle>
+        </div>
+        <div className={css.select_wrapper}>
+          <ladel className={css.lable_title}>Price/ 1 hour</ladel>
 
           <MySelectFav
             selectedPrice={selectedPrice}
             setSelectedPrice={setSelectedPrice}
           />
-        </selectWrapper>
+        </div>
         
-        <selectWrapper>
-          <lableTitle>Сar mileage / km</lableTitle>
+        <div className={css.select_wrapper}>
+          <ladel className={css.lable_title}>Сar mileage / km</ladel>
 
           <div>
-            <inputWrapper>
-              <nputWrapper>From</nputWrapper>
-              <leftInput
+            <div className={css.input_wrapper}>
+              <div className={css.inputName}>From</div>
+              <input
+                className={css.left_input}
                 type="number"
                 name="minMileage"
                 value={minMileage}
@@ -84,10 +85,11 @@ const Favourite = ({ onFilterChange }) => {
                   setMinMileage(value);
                 }}
               />
-            </inputWrapper>
-            <inputWrapper>
-              <inputName>To</inputName>
-              <rigthInput
+            </div>
+            <div className={css.input_wrapper}>
+              <div className={css.inputName}>To</div>
+              <input
+                className={css.rigth_input}
                 type="number"
                 value={maxMileage}
                 onClick={(e) => {
@@ -95,14 +97,14 @@ const Favourite = ({ onFilterChange }) => {
                   setMaxMileage(value);
                 }}
               />
-            </inputWrapper>
+            </div>
           </div>
-        </selectWrapper>
-        <btnSearch type="submit">Search</btnSearch>
-        <closeBtn onClick={clearFilters}>Clear</closeBtn>
-      </filterForm>
+        </div>
+        <button className= {css.btn_Search} type="submit">Search</button>
+        <button className={css.closeBtn} onClick={clearFilters}>Clear</button>
+      </form>
     </div>
   );
 };
 
-export default Favourite;
+export default Favorite;

@@ -1,6 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-
-import { setAdverts, setAllAdverts } from '../redux/operations';
+import { createSlice } from "@reduxjs/toolkit";
+import { setAdverts, setAllAdverts } from "./operations";
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -10,12 +9,11 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-
-const carSlice = createSlice({
-  name: 'cars',
-   initialState: {
-    cars: [],
-    allCars: [],
+const catalogSlice = createSlice({
+  name: "catalog",
+  initialState: {
+    adverts: [],
+    allAdverts: [],
     isLoading: false,
     error: null,
     page: 1,
@@ -26,7 +24,7 @@ const carSlice = createSlice({
       .addCase(setAdverts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.cars = [...state.cars, ...action.payload];
+        state.adverts = [...state.adverts, ...action.payload];
       })
       .addCase(setAdverts.rejected, handleRejected)
       .addCase(setAllAdverts.pending, handlePending)
@@ -44,7 +42,5 @@ const carSlice = createSlice({
   },
 });
 
-
-export const {onNextPage } = carSlice.actions;
-
-export const carsReducer = carSlice.reducer;
+export const { onNextPage } = catalogSlice.actions;
+export default catalogSlice.reducer;

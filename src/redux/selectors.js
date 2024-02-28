@@ -1,10 +1,10 @@
-export const selectFavourites = (state) => state.favorite.favourites;
+export const selectFavorites = (state) => state.favorite.favorites;
 
-export const selectCars = (state) => state.car.cars;
-export const selectAllCars = (state) => state.car.allCars;
-export const selectIsLoading = (state) => state.car.isLoading;
-export const selectError = (state) => state.car.error;
-export const selectPage = (state) => state.car.page;
+export const selectAdverts = (state) => state.catalog.adverts;
+export const selectAllAdverts = (state) => state.catalog.allAdverts;
+export const selectIsLoading = (state) => state.catalog.isLoading;
+export const selectError = (state) => state.catalog.error;
+export const selectPage = (state) => state.catalog.page;
 
 export const selectFilters = (state) => state.filters.filters;
-export const filtersFavourite = (state) => state.filters.filtersFavourite;
+export const filtersFavorite = (state) => state.filters.filtersFavorite;

@@ -1,28 +1,28 @@
-import { Suspense } from 'react';
-import { Outlet, Link } from 'react-router-dom';
-import { Container, NavList, Navigation } from './Layout.styled';
+import React from "react";
+import Container from "../Container/Container";
+import Header from "../../pages/Header/Header";
+import { Outlet } from "react-router-dom";
+import { Suspense } from "react";
+import css from "./Layout.module.css";
+import LoaderSpiner from "../LoaderSpiner/LoaderSpiner";
 
-export const Layout = () => {
-   return (
-    <Container>
-      <header>
-        <Navigation>
-          <NavList>
-              <Link to="/">
-                Home
-              </Link>
-              <Link to="/cars">
-                Cars
-             </Link>
-             <Link to="/favourites">
-               Favourites
-              </Link>
-          </NavList>
-        </Navigation>
+const Layout = () => {
+  return (
+    <>
+      <header className={css.background}>
+        <Container>
+          <Header />
+        </Container>
       </header>
-      <Suspense fallback={<div>Loading page...</div>}>
-        <Outlet />
-      </Suspense>
-    </Container>
+      <Container>
+        <main>
+          <Suspense fallback={<LoaderSpiner />}>
+            <Outlet />
+          </Suspense>
+        </main>
+      </Container>
+    </>
   );
 };
+
+export default Layout;

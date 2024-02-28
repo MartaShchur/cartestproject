@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-
+import css from './LoaderSpiner.module.css';
 import { BallTriangle } from 'react-loader-spinner';
 
 class LoaderSpiner extends Component {
   render() {
     return (
-      <div id="overlay">
+      <div className={css.overlay} id="overlay">
         <BallTriangle
           height={100}
           width={100}

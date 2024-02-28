@@ -45,21 +45,3 @@ export const InputRight = styled.input`
   font-weight: 500;
   line-height: 1.11;
 `;
-
-export const ButtonSearch = styled.button`
-border-radius: 12px;
-  background: white;
-  padding: 14px 44px;
-  height: 52px;
-  color: var(--White, #fff);
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.43;
-.btn_Search:hover,
-.btn_Search:focus,
-.closeBtn:hover,
-.closeBtn:focus {
-    background: white;
-}
-`;

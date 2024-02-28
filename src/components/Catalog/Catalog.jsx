@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from "react";
-import AdvertItem from "../CarItem/CarItem.jsx";
+import AdvertItem from "../AdvertItem/AdvertItem";
 import LoadMore from "../../helpers/LoadMore/LoadMore";
+import css from "./Catalog.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { onNextPage } from "../../redux/carSlice.js";
-import { setAdverts, setAllAdverts } from "../../redux/operations.js";
+import { onNextPage } from "../../redux/catalogSlice";
+import { setAdverts, setAllAdverts } from "../../redux/operations";
 import LoaderSpiner from "../LoaderSpiner/LoaderSpiner";
 import {
-  selectCars,
-  selectAllCars,
+  selectAdverts,
+  selectAllAdverts,
   selectFilters,
   selectIsLoading,
   selectPage,
-} from "../../redux/selectors.js";
+} from "../../redux/selectors";
 
-const Cars = () => {
+const Catalog = () => {
   const [isBnt, setIsBtn] = useState(true);
   const dispatch = useDispatch();
 
   const isLoading = useSelector(selectIsLoading);
   const page = useSelector(selectPage);
-  const adverts = useSelector(selectCars);
+  const adverts = useSelector(selectAdverts);
   const filters = useSelector(selectFilters);
-  const allCars = useSelector(selectAllCars);
+  const allAdverts = useSelector(selectAllAdverts);
 
   const isFilterOn = Boolean(
     filters.selectedMake ||
@@ -50,7 +51,7 @@ const Cars = () => {
     dispatch(setAdverts(page + 1));
   };
 
-  const filteredAdverts = allCars.filter((cars) => {
+  const filteredAdverts = allAdverts.filter((adverts) => {
     if (filters.selectedMake && adverts.make !== filters.selectedMake) {
       return false;
     }
@@ -74,17 +75,17 @@ const Cars = () => {
       {adverts && (
         <>
           {filteredAdverts.length > 0 ? (
-            <advertsList>
-              {(isFilterOn ? filteredAdverts : adverts).map((car) => {
-                return <AdvertItem key={car.id} car={car} />;
+            <ul className={css.advertsList}>
+              {(isFilterOn ? filteredAdverts : adverts).map((advert) => {
+                return <AdvertItem key={advert.id} advert={advert} />;
               })}
-            </advertsList>
+            </ul>
           ) : (
             <>
               {!isLoading && (
-                <divMatching>
+                <div className={css.noMatching}>
                   Sorry, no matching adverts found
-                </divMatching>
+                </div>
               )}
             </>
           )}
@@ -98,6 +99,4 @@ const Cars = () => {
     </>
   );
 };
-
-
-export default Cars;
+export default Catalog;

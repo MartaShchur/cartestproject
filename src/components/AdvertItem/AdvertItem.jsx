@@ -2,12 +2,14 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addToFavourites,
-  removeFromFavourites,
-} from "../../redux/favouriteSlice.js";
+  addToFavorites,
+  removeFromFavorites,
+} from "../../redux/favouriteSlice";
+// import iconAddFavorites from "./../../assets/img/addHeart.svg";
+// import iconRemoveFavorites from "./../../assets/img/removeHeart.svg";
+import css from "./AdvertItem.module.css";
 
-
-const CarItem = ({ advert } )  => {
+function AdvertItem({ advert }) {
   const [openModal, setOpenModal] = useState(false);
 
   const address = advert.address.split(",");
@@ -37,43 +39,44 @@ const CarItem = ({ advert } )  => {
     const isFavorite = favorites.some((favorite) => favorite.id === advert.id);
 
     if (isFavorite) {
-      dispatch(removeFromFavourites(advert));
+      dispatch(removeFromFavorites(advert));
     } else {
-      dispatch(addToFavourites(advert));
+      dispatch(addToFavorites(advert));
     }
   };
 
   return (
     <>
-      <cardLi >
-        <cardWrapper>
-          <btnAddFavorite  onClick={toggleFavorite}>
-          </btnAddFavorite>
+      <div className={css.cardLi}>
+        <div className={css.cardWrapper}>
+          <button className={css.btnAddFavorite} onClick={toggleFavorite}>
+            
+          </button>
 
-          <img  src={advert.img} alt="car" height={268} />
-        </cardWrapper>
+          <img className={css.carImg} src={advert.img} alt="car" height={268} />
+        </div>
 
         <div>
-          <div >
+          <div className={css.carTitle}>
             <h2>
               {advert.make} <span>{advert.model}</span>, {advert.year}
             </h2>
             <p>{advert.rentalPrice}</p>
           </div>
-          <div>
+          <div className={css.carInfo}>
             {city}&ensp;|&ensp;{country}&ensp;|&ensp;{advert.rentalCompany}
           </div>
 
-          <div>
+          <div className={css.carInfo}>
             {advert.type}&ensp;|&ensp;{advert.make}
             &ensp;|&ensp;{Number(advert.mileage).toLocaleString("en")}
             &ensp;|&ensp;{advert.accessories[0]}
           </div>
         </div>
-        <button  onClick={openModalHendler}>
+        <button className={css.btnLearnMore} onClick={openModalHendler}>
           Learn more
         </button>
-      </cardLi>
+      </div>
 
       {openModal && (
         <Modal closeModal={closeModalHendler} advert={advert} key={advert.id} />
@@ -82,5 +85,4 @@ const CarItem = ({ advert } )  => {
   );
 }
 
-
-export default CarItem;
+export default AdvertItem;

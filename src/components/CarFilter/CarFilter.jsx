@@ -2,17 +2,15 @@ import React, { useEffect, useState } from "react";
 import makes from "../../db/makes.json";
 import SelectPrice from "../../helpers/SelectPrice/SelectPrice";
 import SelectBrand from "../../helpers/SelectBrand/SelectBrand";
-import { useSelector } from "react-redux";
-import { selectFilters } from "../../redux/selectors.js";
-// import { resetFilters } from "../../redux/filters/filtersSlice.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { selectFilters } from "../../redux/selectors";
+import { resetFilters } from "../../redux/filtersSlice";
 import {
   InputDiv,
   InputPl,
   InputLeft,
   InputRight,
-  ButtonSearch
 } from "../CarFilter/CarFilter.styled";
-
 
 const CarFilter = ({ onFilterChange }) => {
   const [selectedMake, setSelectedMake] = useState("");
@@ -20,7 +18,7 @@ const CarFilter = ({ onFilterChange }) => {
   const [minMileage, setMinMileage] = useState("");
   const [maxMileage, setMaxMileage] = useState("");
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
 
   useEffect(() => {
@@ -49,27 +47,33 @@ const CarFilter = ({ onFilterChange }) => {
     onFilterChange(filters);
   };
 
+  const clearFilters = (e) => {
+    e.preventDefault();
+    console.log("clear");
+    dispatch(resetFilters());
+  };
+
   return (
-    <filterForm onSubmit={handleFormSubmit}>
-      <divWrapper>
-        <labelTitle>Car brand</labelTitle>
+    <form onSubmit={handleFormSubmit} >
+      <div >
+        <label >Car brand</label>
         <SelectBrand
           selectedMake={selectedMake}
           setSelectedMake={setSelectedMake}
           makes={makes}
         />
-      </divWrapper>
+      </div>
 
-      <divWrapper>
-        <labelTitle>Price/ 1 hour</labelTitle>
+      <div >
+        <label >Price/ 1 hour</label>
         <SelectPrice
           selectedPrice={selectedPrice}
           setSelectedPrice={setSelectedPrice}
         />
-      </divWrapper>
+      </div>
 
-      <divWrapper>
-        <labelTitle> Car mealege / km</labelTitle>
+      <div >
+        <label >Car mealege / km</label>
 
         <div>
           <div>
@@ -97,13 +101,14 @@ const CarFilter = ({ onFilterChange }) => {
             </InputDiv>
           </div>
         </div>
-      </divWrapper>
-      <ButtonSearch type="submit">
+      </div>
+      <button type="submit">
         Search
-      </ButtonSearch>
-    </filterForm>
+      </button>
+      <button type="reset" onClick={clearFilters} >
+        Reset
+      </button>
+    </form>
   );
 };
-
-
 export default CarFilter;

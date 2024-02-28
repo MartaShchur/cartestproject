@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-const filterSlice = createSlice({
+const filtersSlice = createSlice({
   name: " filters",
   initialState: {
     filters: {
@@ -9,7 +9,7 @@ const filterSlice = createSlice({
       minMileage: "",
       maxMileage: "",
     },
-    filtersFavourite: {
+    filtersFavorite: {
       selectedMake: "",
       selectedPrice: "",
       minMileage: "",
@@ -22,12 +22,24 @@ const filterSlice = createSlice({
         ...state.filters,
         ...action.payload,
       };
-    },   
-    setFiltersFavourite: (state, action) => {
-      state.filtersFavourite = {
-        ...state.filtersFavourite,
+    },
+    resetFilters: (state) => {
+      state.filters.selectedMake = "";
+      state.filters.selectedPrice = "";
+      state.filters.minMileage = "";
+      state.filters.maxMileage = "";
+    },
+    setFiltersFavorite: (state, action) => {
+      state.filtersFavorite = {
+        ...state.filtersFavorite,
         ...action.payload,
       };
+    },
+    resetFiltersFavorite: (state) => {
+      state.filtersFavorite.selectedMake = "";
+      state.filtersFavorite.selectedPrice = "";
+      state.filtersFavorite.minMileage = "";
+      state.filtersFavorite.maxMileage = "";
     },
   },
 });
@@ -35,9 +47,8 @@ const filterSlice = createSlice({
 export const {
   setFilters,
   resetFilters,
-  setFiltersFavourite,
-  resetFiltersFavourite,
-} = filterSlice.actions;
+  setFiltersFavorite,
+  resetFiltersFavorite,
+} = filtersSlice.actions;
 
-
-export const filterReducer = filterSlice.reducer;
+export default filtersSlice.reducer;

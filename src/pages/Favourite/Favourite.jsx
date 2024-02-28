@@ -1,21 +1,22 @@
 import React from "react";
-import CarItem from "../../components/CarItem/CarItem";
+import AdvertItem from "../../components/AdvertItem/AdvertItem";
 import { useSelector, useDispatch } from "react-redux";
-import { setFiltersFavourite } from "../../redux/filtersSlice";
-import Favourite from "../../pages/Favourite/Favourite";
-import { filtersFavourite, selectFavourites } from "../../redux/selectors.js";
-
+import { setFiltersFavorite } from "../../redux/filtersSlice";
+import Favorite from "../../components/Favourite/Favourite";
+import { filtersFavorite, selectFavorites } from "../../redux/selectors";
+import css from "./Favorite.module.css";
+import css_ from "../../components/Catalog/Catalog.module.css"
 
 const Favourites = () => {
   const dispatch = useDispatch();
-  const favourites = useSelector(selectFavourites);
-  const filters = useSelector(filtersFavourite);
+  const favorites = useSelector(selectFavorites);
+  const filters = useSelector(filtersFavorite);
 
   const handleFilterChange = (filters) => {
-    dispatch(setFiltersFavourite(filters));
+    dispatch(setFiltersFavorite(filters));
   };
 
-  const filteredFavourites = favourites.filter((advert) => {
+  const filteredFavorites = favorites.filter((advert) => {
     if (filters.selectedMake && advert.make !== filters.selectedMake) {
       return false;
     }
@@ -35,20 +36,20 @@ const Favourites = () => {
   });
 
   return (
-    <formWrapper>
-      <selectWrapperForm>
-        {filteredFavourites.length > 0 ? (
-          <advertsList>
-            {filteredFavourites.map((advert) => (
-              <CarItem key={advert.id} advert={advert} />
+    <form className={css.form_wrapper}>
+      <div className={css.select_wrapper_form}>
+        {filteredFavorites.length > 0 ? (
+          <div className={css_.advertsList}>
+            {filteredFavorites.map((advert) => (
+              <AdvertItem key={advert.id} advert={advert} />
             ))}
-          </advertsList>
+          </div>
         ) : (
-          <noMatching>Sorry, no matching favorites found</noMatching>
+          <div className={css_.noMatching}>Sorry, no matching favorites found</div>
         )}
-      </selectWrapperForm>
-      <Favourite onFilterChange={handleFilterChange} />
-    </formWrapper>
+      </div>
+      <Favorite onFilterChange={handleFilterChange} />
+    </form>
   );
 }
 

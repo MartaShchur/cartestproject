@@ -1,22 +1,22 @@
 import Select from "react-select";
 
-const SelectBrand  = ({ selectedMake, setSelectedMake, makes }) => {
-  const options = [
-    { value: null, label: "Enter the text" },
-      ...makes.map((make, index) => ({
-      value: make,
-      label: make,
-    })),
-  ];
+const options = [
+  { value: null, label: "To $" },
+  ...[...Array(21).keys()].map((price) => ({
+    value: (price + 1) * 10,
+    label: `$${(price + 1) * 10}`,
+  })),
+];
 
+const SelectFavorite = ({ selectedPrice, setSelectedPrice }) => {
   const handleChange = (selectedOption) => {
-    setSelectedMake(selectedOption ? selectedOption.value : "");
+    setSelectedPrice(selectedOption ? selectedOption.value : null);
   };
 
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
-      width: "224px",
+      width: "320px",
       display: "block",
       border: "none",
       borderRadius: "14px",
@@ -52,7 +52,7 @@ const SelectBrand  = ({ selectedMake, setSelectedMake, makes }) => {
     }),
     menu: (provided) => ({
       ...provided,
-      height: "272px",
+      height: "188px",
       zIndex: 9999,
       borderRadius: "14px",
       border: "1px solid rgba(18, 20, 23, 0.05)",
@@ -61,8 +61,8 @@ const SelectBrand  = ({ selectedMake, setSelectedMake, makes }) => {
     }),
     menuList: (provided) => ({
       ...provided,
-      width: "224px",
-      height: "272px",
+      width: "320px",
+      height: "188px",
       zIndex: 9999,
       display: "flex",
       flexDirection: "column",
@@ -72,13 +72,9 @@ const SelectBrand  = ({ selectedMake, setSelectedMake, makes }) => {
       background: "#FFFFFF",
       boxShadow: "0px 4px 36px 0px rgba(0, 0, 0, 0.02)",
     }),
-    clearIndicator: (provided) => ({
-      ...provided,
-    }),
   };
 
-  const displayValue =
-    selectedMake !== null ? { selectedMake } : "Enter the text";
+  const displayValue = selectedPrice !== null ? `To ${selectedPrice}$` : " ";
 
   return (
     <div>
@@ -86,14 +82,11 @@ const SelectBrand  = ({ selectedMake, setSelectedMake, makes }) => {
         className="basic-single"
         styles={customStyles}
         value={
-          selectedMake !== null
-            ? {
-                value: selectedMake,
-                label: selectedMake ? selectedMake : "Enter the text",
-              }
+          selectedPrice !== null
+            ? { value: selectedPrice, label: `To ${selectedPrice}$` }
             : null
         }
-        placeholder={displayValue}
+        placeholder={`To ${displayValue}$`}
         onChange={handleChange}
         options={options}
       />
@@ -101,4 +94,4 @@ const SelectBrand  = ({ selectedMake, setSelectedMake, makes }) => {
   );
 };
 
-export default SelectBrand;
+export default SelectFavorite;

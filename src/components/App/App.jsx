@@ -1,24 +1,20 @@
-import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { Layout } from 'components/Layout/Layout';
+import { Routes, Route } from "react-router-dom";
+import Home from "../../pages/Home/Home";
+import Catalog from "../../pages/Catalog/Catalog";
+import Favorite from "../../pages/Favourite/Favourite";
+import Layout from "../Layout/Layout";
 
-
-const Home = lazy(() => import('pages/Home/Home'));
-const Car = lazy(() => import('pages/Cars/Cars'));
-const Favourite = lazy(() => import('pages/Favourite/Favourite'));
-
-
-const App = () => {
+function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/cars" element={<Car/>} />
-        <Route path="/favourite" element={<Favourite />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/favourites" element={<Favorite />} />
         <Route path="*" element={<Home />} />
       </Route>
     </Routes>
   );
-};
+}
 
 export default App;
