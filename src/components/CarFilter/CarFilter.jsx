@@ -11,6 +11,7 @@ import {
   InputLeft,
   InputRight,
 } from "../CarFilter/CarFilter.styled";
+import css from "./CarFilter.module.css";
 
 const CarFilter = ({ onFilterChange }) => {
   const [selectedMake, setSelectedMake] = useState("");
@@ -54,9 +55,9 @@ const CarFilter = ({ onFilterChange }) => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit} >
-      <div >
-        <label >Car brand</label>
+    <form onSubmit={handleFormSubmit} className={css.filterForm}>
+      <div className={css.select_wrapper}>
+        <label className={css.label_title}>Car brand</label>
         <SelectBrand
           selectedMake={selectedMake}
           setSelectedMake={setSelectedMake}
@@ -64,17 +65,16 @@ const CarFilter = ({ onFilterChange }) => {
         />
       </div>
 
-      <div >
-        <label >Price/ 1 hour</label>
+      <div className={css.select_wrapper}>
+        <label className={css.label_title}>Price/ 1 hour</label>
         <SelectPrice
           selectedPrice={selectedPrice}
           setSelectedPrice={setSelectedPrice}
         />
       </div>
 
-      <div >
-        <label >Car mealege / km</label>
-
+      <div className={css.select_wrapper}>
+        <label className={css.label_title}>Car mealege / km</label>
         <div>
           <div>
             <InputDiv>
@@ -102,10 +102,10 @@ const CarFilter = ({ onFilterChange }) => {
           </div>
         </div>
       </div>
-      <button type="submit">
+      <button type="submit" className={css.btn_Search}>
         Search
       </button>
-      <button type="reset" onClick={clearFilters} >
+      <button type="reset" onClick={clearFilters} className={css.closeBtn}>
         Reset
       </button>
     </form>

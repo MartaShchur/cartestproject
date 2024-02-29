@@ -10,6 +10,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1200;
 }
+
 .modalContainer {
   position: relative;
   width: 541px;
@@ -18,12 +19,14 @@
   background: #fff;
   padding: 40px;
 }
+
 .closeBtn {
   position: absolute;
   top: 10px;
   right: 10px;
   background: transparent;
 }
+
 .wrapperCar {
   border-radius: 14px;
   background: rgba(18, 20, 23, 0.1);
@@ -31,6 +34,7 @@
   height: 248px;
   margin-bottom: 14px;
 }
+
 .carImage {
   border-radius: 14px;
   width: 461px;
@@ -39,11 +43,11 @@
   overflow: hidden;
 }
 
-/* .carTitle {
+.carTitle {
   display: flex;
   align-items: start;
   margin-bottom: 8px;
-} */
+}
 
 .carTitle h2 {
   color: #121417;
@@ -53,6 +57,7 @@
   line-height: 1.33;
   text-wrap: nowrap;
 }
+
 .carTitle span {
   color: var(--pr-button-background-color);
   font-family: inherit;
@@ -67,6 +72,7 @@
   font-size: 12px;
   line-height: 1.5;
 }
+
 .carDescription {
   color: #121417;
   font-family: inherit;
@@ -75,6 +81,7 @@
   margin-top: 14px;
   margin-bottom: 24px;
 }
+
 .secondaryTitle {
   color: var(--pr-text-color);
   font-family: inherit;
@@ -83,6 +90,7 @@
   line-height: 1.43;
   margin-bottom: 8px;
 }
+
 .AccessoriesList {
   display: flex;
   flex-wrap: wrap;
@@ -94,6 +102,7 @@
   line-height: 1.5;
   margin-bottom: 24px;
 }
+
 .conditionList {
   display: flex;
   flex-wrap: wrap;
@@ -101,6 +110,7 @@
   list-style: none;
   margin-bottom: 24px;
 }
+
 .conditionList li {
   padding: 7px 14px;
   border-radius: 35px;
@@ -110,6 +120,7 @@
   font-size: 12px;
   line-height: 1.5;
 }
+
 .btnRentalCar {
   padding: 12px 50px;
   border-radius: 12px;
@@ -123,6 +134,7 @@
   margin-top: 24px;
   margin-top: auto;
 }
+
 .btnRentalCard:hover,
 .btnRentalCard:focus {
   background: var(--hovered-button-background-color);
