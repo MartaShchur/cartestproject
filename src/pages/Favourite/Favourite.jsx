@@ -47,6 +47,7 @@ const Favourites = () => {
         ) : (
           <div className={css_.noMatching}>Sorry, no matching favorites found</div>
         )}
+        
       </div>
       <Favorite onFilterChange={handleFilterChange} />
     </form>
