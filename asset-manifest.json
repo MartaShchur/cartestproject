@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/cartestproject/static/css/main.02a5bf23.css",
-    "main.js": "/cartestproject/static/js/main.ac9a637c.js",
+    "main.css": "/cartestproject/static/css/main.b6f43e44.css",
+    "main.js": "/cartestproject/static/js/main.ff5e1d0c.js",
     "index.html": "/cartestproject/index.html",
-    "main.02a5bf23.css.map": "/cartestproject/static/css/main.02a5bf23.css.map",
-    "main.ac9a637c.js.map": "/cartestproject/static/js/main.ac9a637c.js.map"
+    "main.b6f43e44.css.map": "/cartestproject/static/css/main.b6f43e44.css.map",
+    "main.ff5e1d0c.js.map": "/cartestproject/static/js/main.ff5e1d0c.js.map"
   },
   "entrypoints": [
-    "static/css/main.02a5bf23.css",
-    "static/js/main.ac9a637c.js"
+    "static/css/main.b6f43e44.css",
+    "static/js/main.ff5e1d0c.js"
   ]
 }
